@@ -5,7 +5,7 @@ import BlogContainer from './components/containers/BlogContainer';
 
 
 const result = ReactDOMServer.renderToString(
-	React.createElement(BlogContainer)
+  React.createElement(BlogContainer)
 );
 
 export default result;

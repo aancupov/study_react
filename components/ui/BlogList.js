@@ -3,7 +3,7 @@ import DOM from 'react-dom-factories'
 import _ from 'lodash';
 
 const Image = (props) => (
-    DOM.img(props)
+  DOM.img(props)
 );
 
 const MyText = (name) => (

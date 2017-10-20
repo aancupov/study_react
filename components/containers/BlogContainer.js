@@ -5,48 +5,44 @@ import BlogList from '../ui/BlogList';
 
 const Items = [
   {
-      text:{txt:'Е-е-ее'},
-      image: 
-      {
-        src:'http://static.jsbin.com/images/dave.min.svg',
-        width:'50px',
-        height:'20px',
-        alt:'Bin'
-      }
-
+    text:{txt:'Е-е-ее'},
+    image: 
+    {
+      src:'http://static.jsbin.com/images/dave.min.svg',
+      width:'50px',
+      height:'20px',
+      alt:'Bin'
+    }
   },
   {
-      text:{txt:'О-о-оо'},
-      image: 
-      {
-        src:'http://static.jsbin.com/images/dave.min.svg',
-        width:'50px',
-        height:'20px',
-        alt:'Bin'
-      }
-
+    text:{txt:'О-о-оо'},
+    image: 
+    {
+      src:'http://static.jsbin.com/images/dave.min.svg',
+      width:'50px',
+      height:'20px',
+      alt:'Bin'
+    }
   },
   {
-      text:{txt:'А-а-аа'},
-      image: 
-      {
-        src:'http://static.jsbin.com/images/dave.min.svg',
-        width:'50px',
-        height:'20px',
-        alt:'Bin'
-      }
-
+    text:{txt:'А-а-аа'},
+    image: 
+    {
+      src:'http://static.jsbin.com/images/dave.min.svg',
+      width:'50px',
+      height:'20px',
+      alt:'Bin'
+    }
   },
   {
-      text:{txt:'У-у-уу'},
-      image: 
-      {
-        src:'http://static.jsbin.com/images/dave.min.svg',
-        width:'50px',
-        height:'20px',
-        alt:'Bin'
-      }
-
+    text:{txt:'У-у-уу'},
+    image: 
+    {
+      src:'http://static.jsbin.com/images/dave.min.svg',
+      width:'50px',
+      height:'20px',
+      alt:'Bin'
+    }
   },
 ];
 
@@ -64,7 +60,5 @@ class BlogContainer extends React.Component {
     return React.createElement(BlogList, { Items });
   }
 }
-
-
 
 export default BlogContainer;

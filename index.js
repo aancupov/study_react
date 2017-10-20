@@ -6,7 +6,7 @@ var express = require('express');
 var application = express();
 
 application.get('/', function(req, res) {
-	res.send(result);
+  res.send(result);
 });
 
 application.listen(3005);
