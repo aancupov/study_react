@@ -3,9 +3,9 @@ import React from 'react';
 import BlogList from '../ui/BlogList';
 
 
-const Items = [
+const items = [
   {
-    text:{txt:'Е-е-ее'},
+    text: { txt: 'Е-е-ее' },
     image: 
     {
       src:'http://static.jsbin.com/images/dave.min.svg',
@@ -15,7 +15,7 @@ const Items = [
     }
   },
   {
-    text:{txt:'О-о-оо'},
+    text: { txt: 'О-о-оо' },
     image: 
     {
       src:'http://static.jsbin.com/images/dave.min.svg',
@@ -25,7 +25,7 @@ const Items = [
     }
   },
   {
-    text:{txt:'А-а-аа'},
+    text: { txt: 'А-а-аа' },
     image: 
     {
       src:'http://static.jsbin.com/images/dave.min.svg',
@@ -35,7 +35,7 @@ const Items = [
     }
   },
   {
-    text:{txt:'У-у-уу'},
+    text: { txt: 'У-у-уу' },
     image: 
     {
       src:'http://static.jsbin.com/images/dave.min.svg',
@@ -51,13 +51,17 @@ class BlogContainer extends React.Component {
   
   constructor(props) {
     super(props);
-    this.state = { Items };
+    this.state = { items };
   }
 
   render() {
-    const { Items } = this.state;
+    const { items } = this.state;
 
-    return React.createElement(BlogList, { Items });
+    return React.createElement(BlogList, { items });
+    //return (
+    //  <BlogList >
+    //  </BlogList>
+    //);
   }
 }
 

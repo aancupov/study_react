@@ -2,12 +2,12 @@ import React from 'react';
 import DOM from 'react-dom-factories'
 import _ from 'lodash';
 
-const Image = (props) => (
-  DOM.img(props)
+const Image = (url) => (
+  DOM.img(url)
 );
 
-const MyText = (name) => (
-  DOM.div(null,`${name}`)
+const MyText = (text) => (
+  DOM.div(null,`${text}`)
 );
 
 const TextBox = (props) => (
@@ -25,11 +25,11 @@ const BlogItem = (props) => (
   )
 );
 
-const BlogList = ({ Items }) => (
+const BlogList = ({ items }) => (
   DOM.ul(
     null,
     _.map(
-      Items,
+      items,
       (item,key) => (
         DOM.li({key},BlogItem(item))
       )
