@@ -1,68 +1,55 @@
 import React from 'react';
-
 import BlogList from '../ui/BlogList';
+import _ from 'lodash';
 
 
 const items = [
   {
-    text: { txt: 'Е-е-ее' },
-    image: 
+    msgItem: { text: 'Е-е-ее' },
+    imageItem: 
     {
-      src:'http://static.jsbin.com/images/dave.min.svg',
-      width:'50px',
-      height:'20px',
-      alt:'Bin'
+      src:    'http://static.jsbin.com/images/dave.min.svg',
+      width:  '50px',
+      height: '20px',
+      alt:    'Bin'
     }
   },
   {
-    text: { txt: 'О-о-оо' },
-    image: 
+    msgItem: { text: 'О-о-оо' },
+    imageItem: 
     {
-      src:'http://static.jsbin.com/images/dave.min.svg',
-      width:'50px',
-      height:'20px',
-      alt:'Bin'
+      src:    'http://static.jsbin.com/images/dave.min.svg',
+      width:  '50px',
+      height: '20px',
+      alt:    'Bin'
     }
   },
   {
-    text: { txt: 'А-а-аа' },
-    image: 
+    msgItem: { text: 'А-а-аа' },
+    imageItem: 
     {
-      src:'http://static.jsbin.com/images/dave.min.svg',
-      width:'50px',
-      height:'20px',
-      alt:'Bin'
+      src:    'http://static.jsbin.com/images/dave.min.svg',
+      width:  '50px',
+      height: '20px',
+      alt:    'Bin'
     }
   },
   {
-    text: { txt: 'У-у-уу' },
-    image: 
+    msgItem: { text: 'У-у-уу' },
+    imageItem: 
     {
-      src:'http://static.jsbin.com/images/dave.min.svg',
-      width:'50px',
-      height:'20px',
-      alt:'Bin'
+      src:    'http://static.jsbin.com/images/dave.min.svg',
+      width:  '50px',
+      height: '20px',
+      alt:    'Bin'
     }
   },
 ];
 
 
 class BlogContainer extends React.Component {
-  
-  constructor(props) {
-    super(props);
-    this.state = { items };
-  }
-
   render() {
-    const { items } = this.state;
-
-    return React.createElement(BlogList, { items });
-    //return (
-    //  <BlogList >
-    //  </BlogList>
-    //);
+    return React.createElement(BlogList, _.assign({}, items));
   }
 }
-
 export default BlogContainer;
