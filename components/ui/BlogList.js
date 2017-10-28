@@ -1,28 +1,19 @@
 import React from 'react';
 import DOM from 'react-dom-factories'
+import PropTypes from 'prop-types'
 import _ from 'lodash';
+import moment from 'moment'
+import BlogItem from './BlogItem';
 
-const BlogMsg = ( { msgItem } ) => (
-  DOM.span(null, DOM.div(null, msgItem.text))
-);
 
-const BlogImage = ( { imageItem } ) => (
-  DOM.img(imageItem)
-);
 
-const BlogItem = ( { imageItem, msgItem } ) => (
-  DOM.div(
-    null
-    , React.createElement(BlogImage, { imageItem })
-    , React.createElement(BlogMsg,   { msgItem })
-  )
-);
+////////////////////////////////////////////////////////   BlogList
 
-const BlogList = ( fromContainer ) => (
+const BlogList = (prop) => (
   DOM.ul(
     null,
     _.map(
-      fromContainer,
+      prop,
       (item, key) => (
         DOM.li({ key }, React.createElement(BlogItem, item ))
       )
