@@ -13,13 +13,6 @@ Image.propTypes = {
   alt:    PropTypes.string
 }
 
-const defaultImage = {
-  src: 'https://www.google.ru/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png',
-  width:  '50px',
-  height: '20px',
-  alt:    'Default image'
-}
-
 Image.defaultProps = {
   src: 'https://www.google.ru/images/branding/googlelogo/2x/googlelogo_color_120x44dp.png',
   width:  '50px',
