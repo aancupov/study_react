@@ -1,10 +1,7 @@
 import React from 'react';
 import DOM from 'react-dom-factories'
 import PropTypes from 'prop-types'
-//import _ from 'lodash';
-//import moment from 'moment'
 
-///////////////////////////////////////////////////    Likes
 class Likes extends React.Component {
   constructor(props) {
     super(props);
@@ -16,9 +13,8 @@ class Likes extends React.Component {
     }  
   }
 
-  handleClick() {
+  handleClick(e) {
     this.setState({likes: ++this.state.likes});
-    console.log('clicked');
   }
   
   render() {
@@ -27,7 +23,7 @@ class Likes extends React.Component {
         null
         , `Likes: ${ this.state.likes }`
         , DOM.button(
-          { onClick: () => this.handleClick() }
+          { onClick: (e) => this.handleClick(e) }
           ,'Like'
         )
       )

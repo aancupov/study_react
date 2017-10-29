@@ -6,7 +6,7 @@ import items from '../data/items';
 
 class BlogContainer extends React.Component {
   render() {
-    return React.createElement(BlogList, _.assign({}, items));
+    return React.createElement(BlogList, { items });
   }
 }
 

@@ -1,30 +1,27 @@
 import React from 'react';
 import DOM from 'react-dom-factories'
 import PropTypes from 'prop-types'
-import BlogImage from './BlogImage'
-import BlogMsg from './BlogMsg'
+import Image from './Image'
+import Message from './Message'
 import MetaInfo from './MetaInfo'
 
-///////////////////////////////////////////////////////    BlogItem
-
-const BlogItem = ({ imageItem, msgItem, metainfo }) => (
+const BlogItem = ({ image, message, metainfo }) => (
   DOM.div(
     null
-    , React.createElement(BlogImage, { imageItem })
-    , React.createElement(BlogMsg,   { msgItem })
-    , React.createElement(MetaInfo,  { metainfo })  
+    , React.createElement(Image,    image)
+    , React.createElement(Message,  message)
+    , React.createElement(MetaInfo, metainfo)  
   )
 );
 
 BlogItem.propTypes = {
-  msgItem:    PropTypes.shape( { text: PropTypes.string }),
-  imageItem:  PropTypes.shape(
+  message:    PropTypes.shape( { text: PropTypes.string }),
+  image:  PropTypes.shape(
     {
       src:    PropTypes.string,
       width:  PropTypes.string,
       height: PropTypes.string,
-      alt:    PropTypes.string
-     
+      alt:    PropTypes.string     
     }
   )
 }
