@@ -4,13 +4,13 @@ import PropTypes from 'prop-types'
 import _ from 'lodash';
 import BlogItem from './BlogItem';
 
-const BlogList = ({ items }) => (
+const BlogList = ({ items, nlikes, like }) => (
   DOM.ul(
     null,
     _.map(
       items,
-      (item, key) => (
-        DOM.li({ key }, React.createElement(BlogItem, item ))
+      (item, id) => (
+        DOM.li({ key: id }, React.createElement(BlogItem, { item, id, nlikes, like } ))
       )
     )
   )

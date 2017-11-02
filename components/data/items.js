@@ -60,7 +60,6 @@ const items = [
     }
 
   },
-  {},
   {
     id: 3,
     message: {

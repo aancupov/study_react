@@ -5,12 +5,13 @@ import Image from './Image'
 import Message from './Message'
 import MetaInfo from './MetaInfo'
 
-const BlogItem = ({ image, message, metainfo }) => (
+const BlogItem = ({ item, id, nlikes, like }) => (
   DOM.div(
     null
-    , React.createElement(Image,    image)
-    , React.createElement(Message,  message)
-    , React.createElement(MetaInfo, metainfo)  
+    , React.createElement(Image,    item.image)
+    , React.createElement(Message,  item.message)
+    , React.createElement(MetaInfo, item.metainfo)  
+    , React.createElement(Likes,    { id, nlikes, like })
   )
 );
 
