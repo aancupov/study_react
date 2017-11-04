@@ -11,10 +11,13 @@ class BlogContainer extends React.Component {
   }
 
   like(id) {
-    var items = _.cloneDeep(this.state.items);
-    _.map(items, function (item) {
-      if(item.id === id) ++item.metainfo.likes;
-    });
+    const items = _.cloneDeep(this.state.items);
+    _.map(
+      items, 
+      (item) => {
+        if(item.id === id) ++item.metainfo.likes;
+      }
+    );
     this.setState({items});
   }
 
@@ -24,6 +27,5 @@ class BlogContainer extends React.Component {
     );
   }
 }
-
 
 export default BlogContainer;
