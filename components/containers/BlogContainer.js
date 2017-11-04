@@ -3,15 +3,6 @@ import BlogList from '../ui/BlogList';
 import _ from 'lodash';
 import items from '../data/items';
 
-function changeState(id) {
-  return function update(state) {
-    _.map(state.items, function (item) {
-      if(item.id === id) ++item.metainfo.likes;
-    });
-    return state;
-  } 
-}
-
 class BlogContainer extends React.Component {
   constructor(props) {
     super(props);
@@ -20,7 +11,14 @@ class BlogContainer extends React.Component {
   }
 
   like(id) {
-    this.setState(changeState(id));
+    const items = _.cloneDeep(this.state.items);
+    _.map(
+      items, 
+      (item) => {
+        if(item.id === id) ++item.metainfo.likes;
+      }
+    );
+    this.setState({items});
   }
 
   render() {
