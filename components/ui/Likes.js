@@ -4,14 +4,14 @@ import PropTypes from 'prop-types'
 
 class Likes extends React.Component { 
   handleOnClick() {
-    this.props.like(this.props.id)  
+    this.props.like(this.props.item.id)  
   }
   
   render() {
     return (
       DOM.div(
         null
-        , `Likes: ${ this.props.nlikes[this.props.id] }`
+        , `Likes: ${this.props.item.metainfo.likes}`
         , DOM.button(
           { onClick: this.handleOnClick.bind(this) }
           ,'Like'

@@ -5,19 +5,20 @@ import _ from 'lodash';
 import moment from 'moment'
 import Likes from './Likes'
 
+const formatDate = (date) => (
+  moment(date).format("DD-MM-YYYY")
+)
+
 class MetaInfo  extends React.Component {
-  formatDate(date) {
-    return moment(date).format("DD-MM-YYYY")
-  }
   
   render() {
     const { author, createdAt, updatedAt } = this.props;
     return (
       DOM.div(
         null
-        , DOM.div(null, `Author: ${ author }`)
-        , DOM.div(null, `Created at: ${ this.formatDate(createdAt) }`)
-        , DOM.div(null, `Updated at: ${ this.formatDate(updatedAt) }`)
+        , DOM.div(null, `Author: ${author}`)
+        , DOM.div(null, `Created at: ${formatDate(createdAt)}`)
+        , DOM.div(null, `Updated at: ${formatDate(updatedAt)}`)
       )
     )
   }

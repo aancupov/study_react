@@ -8,19 +8,22 @@ class BlogContainer extends React.Component {
     super(props);
     
     this.state = {
-      count: []
+      items
     }  
-    for(var i=0; i<items.length; i++) this.state.count[i] = 0;
+    
+    like = this.like.bind(this);
   }
 
   like(id) {
-    ++this.state.count[id];
-    this.setState({count: this.state.count});
+    _.map(this.state.items, function (item) {
+      if(item.id === id) ++item.metainfo.likes;
+    });
+    this.setState(this.state);
   }
 
   render() {
     return React.createElement(
-      BlogList, { items, nlikes: this.state.count, like: this.like.bind(this) }
+      BlogList, { items: this.state.items, like }
     );
   }
 }
