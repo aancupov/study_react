@@ -1,9 +1,10 @@
 import React from 'react';
-import DOM from 'react-dom-factories'
-import PropTypes from 'prop-types'
-import Image from './Image'
-import Message from './Message'
-import MetaInfo from './MetaInfo'
+import DOM from 'react-dom-factories';
+import PropTypes from 'prop-types';
+import Image from './Image';
+import Message from './Message';
+import MetaInfo from './MetaInfo';
+import Likes from './Likes';
 
 const BlogItem = ({ item, like }) => (
   DOM.div(
@@ -25,6 +26,6 @@ BlogItem.propTypes = {
       alt:    PropTypes.string     
     }
   )
-}
+};
 
 export default BlogItem;

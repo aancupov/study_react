@@ -1,6 +1,5 @@
 import React from 'react';
-import DOM from 'react-dom-factories'
-import PropTypes from 'prop-types'
+import DOM from 'react-dom-factories';
 import _ from 'lodash';
 import BlogItem from './BlogItem';
 
@@ -14,6 +13,6 @@ const BlogList = ({ items, like }) => (
       )
     )
   )
-)
+);
 
 export default BlogList;

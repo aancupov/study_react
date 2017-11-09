@@ -1,10 +1,9 @@
 import React from 'react';
-import DOM from 'react-dom-factories'
-import PropTypes from 'prop-types'
+import DOM from 'react-dom-factories';
 
 class Likes extends React.Component { 
   handleOnClick() {
-    this.props.like(this.props.item.id)  
+    this.props.like(this.props.item.id);  
   }
   
   render() {
@@ -17,7 +16,7 @@ class Likes extends React.Component {
           ,'Like'
         )
       )
-    )
+    );
   }
 }
 

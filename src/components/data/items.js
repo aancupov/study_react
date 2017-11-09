@@ -6,9 +6,9 @@ const items = [
     },
     image: 
     {
-      src:    'http://static.jsbin.com/images/dave.min.svg',
-      width:  '50px',
-      height: '20px',
+      src:    'dist/images/world.png',
+      width:  '100px',
+      height: '100px',
       alt:    'Bin'
     },
     metainfo:
@@ -26,9 +26,9 @@ const items = [
     },
     image: 
     {
-      src:    'http://static.jsbin.com/images/dave.min.svg',
-      width:  '50px',
-      height: '20px',
+      src:    'dist/images/earth.png',
+      width:  '100px',
+      height: '100px',
       alt:    'Bin'
     },
     metainfo:
@@ -46,9 +46,9 @@ const items = [
     },
     image: 
     {
-      src:    'http://static.jsbin.com/images/dave.min.svg',
-      width:  '50px',
-      height: '20px',
+      src:    'dist/images/mars.png',
+      width:  '100px',
+      height: '100px',
       alt:    'Bin'
     },
     metainfo:
@@ -67,9 +67,9 @@ const items = [
     },
     image: 
     {
-      src:    'http://static.jsbin.com/images/dave.min.svg', 
-      width:  '50px',
-      height: '20px',
+      src:    'dist/images/world.png', 
+      width:  '100px',
+      height: '100px',
       alt:    'Bin'
     },
     metainfo:
