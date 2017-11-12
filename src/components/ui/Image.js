@@ -1,9 +1,9 @@
-import DOM from 'react-dom-factories';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-const Image = ({ src, width, height, alt }) => {
-  return DOM.img({ src, width, height, alt });
-};
+const Image = ({ src, width, height, alt }) => (
+  <img src={src} width={width} height={height} alt={alt} />
+);
 
 Image.propTypes = {
   src:    PropTypes.string,

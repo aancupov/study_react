@@ -40,10 +40,10 @@ module: {
   },
 
   resolve: {
-      modules: [
-        path.join(process.cwd(), 'src'),
-        'node_modules'
-      ]
+    modules: [
+      path.join(process.cwd(), 'src'),
+      'node_modules'
+    ]
   },
 
   plugins: [

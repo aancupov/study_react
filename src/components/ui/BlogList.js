@@ -1,18 +1,24 @@
 import React from 'react';
-import DOM from 'react-dom-factories';
 import _ from 'lodash';
+import PropTypes from 'prop-types';
 import BlogItem from './BlogItem';
 
 const BlogList = ({ items, like }) => (
-  DOM.ul(
-    null,
-    _.map(
-      items,
-      (item, id) => (
-        DOM.li({ key: id }, React.createElement(BlogItem, { item, like } ))
+  <div>
+    { 
+      _.map(
+        items,
+        (item, id) => (
+          <BlogItem key={id} item = {item} like = {like} />
+        )
       )
-    )
-  )
+    }
+  </div>
 );
+
+BlogList.propTypes = {
+  items: PropTypes.array,
+  like: PropTypes.func
+};
 
 export default BlogList;

@@ -1,16 +1,14 @@
-import DOM from 'react-dom-factories';
+import React from 'react';
 import PropTypes from 'prop-types';
 
-const Message = ({ text }) => (
-  DOM.span(null, DOM.div(null, text))
+const Message = ({ children }) => (
+  <div>
+    <p>{ children }</p>
+  </div>
 );
 
-Message.defaultProps = {
-  text: 'Пропущено сообщение'
-};
-
 Message.propTypes = {
-  text: PropTypes.string
+  children: PropTypes.array
 };
 
 export default Message;

@@ -1,9 +1,7 @@
 const items = [
   {
     id: 0,
-    message: {
-      text: 'Е-е-ее'
-    },
+    message: 'Е-е-ее',
     image: 
     {
       src:    'dist/images/world.png',
@@ -21,9 +19,7 @@ const items = [
   },
   {
     id: 1,
-    message: {
-      text: 'О-о-оо'
-    },
+    message: 'О-о-оо',
     image: 
     {
       src:    'dist/images/earth.png',
@@ -41,9 +37,7 @@ const items = [
   },
   {
     id: 2,
-    message: {
-      text: 'А-а-аа' 
-    },
+    message: 'А-а-аа',
     image: 
     {
       src:    'dist/images/mars.png',
@@ -62,9 +56,7 @@ const items = [
   },
   {
     id: 3,
-    message: {
-      text: 'У-у-уу' 
-    },
+    message: 'У-у-уу',
     image: 
     {
       src:    'dist/images/world.png', 

@@ -2,6 +2,7 @@ import React from 'react';
 import BlogList from '../ui/BlogList';
 import _ from 'lodash';
 import items from '../data/items';
+import 'css/app.css';
 
 class BlogContainer extends React.Component {
   constructor(props) {
