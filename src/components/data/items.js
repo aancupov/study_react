@@ -1,14 +1,12 @@
 const items = [
   {
     id: 0,
-    message: {
-      text: 'Е-е-ее'
-    },
+    message: 'Е-е-ее',
     image: 
     {
-      src:    'http://static.jsbin.com/images/dave.min.svg',
-      width:  '50px',
-      height: '20px',
+      src:    'dist/images/world.png',
+      width:  '100px',
+      height: '100px',
       alt:    'Bin'
     },
     metainfo:
@@ -21,14 +19,12 @@ const items = [
   },
   {
     id: 1,
-    message: {
-      text: 'О-о-оо'
-    },
+    message: 'О-о-оо',
     image: 
     {
-      src:    'http://static.jsbin.com/images/dave.min.svg',
-      width:  '50px',
-      height: '20px',
+      src:    'dist/images/earth.png',
+      width:  '100px',
+      height: '100px',
       alt:    'Bin'
     },
     metainfo:
@@ -41,14 +37,12 @@ const items = [
   },
   {
     id: 2,
-    message: {
-      text: 'А-а-аа' 
-    },
+    message: 'А-а-аа',
     image: 
     {
-      src:    'http://static.jsbin.com/images/dave.min.svg',
-      width:  '50px',
-      height: '20px',
+      src:    'dist/images/mars.png',
+      width:  '100px',
+      height: '100px',
       alt:    'Bin'
     },
     metainfo:
@@ -62,14 +56,12 @@ const items = [
   },
   {
     id: 3,
-    message: {
-      text: 'У-у-уу' 
-    },
+    message: 'У-у-уу',
     image: 
     {
-      src:    'http://static.jsbin.com/images/dave.min.svg', 
-      width:  '50px',
-      height: '20px',
+      src:    'dist/images/world.png', 
+      width:  '100px',
+      height: '100px',
       alt:    'Bin'
     },
     metainfo:
