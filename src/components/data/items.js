@@ -4,7 +4,7 @@ const items = [
     message: 'Е-е-ее',
     image: 
     {
-      src:    'dist/images/world.png',
+      src:    '/dist/images/world.png',
       width:  '100px',
       height: '100px',
       alt:    'Bin'
@@ -22,7 +22,7 @@ const items = [
     message: 'О-о-оо',
     image: 
     {
-      src:    'dist/images/earth.png',
+      src:    '/dist/images/earth.png',
       width:  '100px',
       height: '100px',
       alt:    'Bin'
@@ -40,7 +40,7 @@ const items = [
     message: 'А-а-аа',
     image: 
     {
-      src:    'dist/images/mars.png',
+      src:    '/dist/images/mars.png',
       width:  '100px',
       height: '100px',
       alt:    'Bin'
@@ -59,7 +59,7 @@ const items = [
     message: 'У-у-уу',
     image: 
     {
-      src:    'dist/images/world.png', 
+      src:    '/dist/images/world.png', 
       width:  '100px',
       height: '100px',
       alt:    'Bin'

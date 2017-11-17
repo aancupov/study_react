@@ -5,11 +5,13 @@ import Message from './Message';
 import MetaInfo from './MetaInfo';
 import Likes from './Likes';
 import 'css/app.css';
+import { Link } from 'react-router-dom';
+import { postsPath } from 'helpers/routes';
 
 const BlogItem = ({ item, like }) => (
   <div className='blog-item'>
     <Image { ...item.image } />
-    <Message> { item.message } </Message>
+    <Message><Link to={postsPath(item.id)}>{ item.message }</Link></Message>
     <MetaInfo { ... item.metainfo } />
     <Likes item = {item} like = {like} />
   </div>

@@ -7,7 +7,7 @@ import 'css/app.css';
 class BlogContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { items };  
+    this.state = { items, all: true, only: 0 };  
     this.like = this.like.bind(this);
   }
 
@@ -23,8 +23,8 @@ class BlogContainer extends React.Component {
   }
 
   render() {
-    return React.createElement(
-      BlogList, { items: this.state.items, like: this.like }
+    return(
+      <BlogList items={this.state.items} like={this.like}/>
     );
   }
 }

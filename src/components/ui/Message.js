@@ -8,7 +8,7 @@ const Message = ({ children }) => (
 );
 
 Message.propTypes = {
-  children: PropTypes.array
+  children: PropTypes.object
 };
 
 export default Message;
