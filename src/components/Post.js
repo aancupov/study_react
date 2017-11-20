@@ -8,14 +8,35 @@ import { Item } from 'semantic-ui-react';
 
 import BlogItem from 'components/ui/BlogItem';
 
-import items from 'components/data/items';
+import request from 'superagent';
 
 
-const Post = ({match}) => (
-  <Item.Group>
-    <BlogItem item={items[match.params.id]}/>
-  </Item.Group>
-);
+class Post  extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { item: {metainfo: {likes:0}} };
+  }
+
+  componentDidMount() {
+    this.fetchPost(this.props.match.params.id);
+  }
+
+  fetchPost(id) {
+    request.get(
+      'http://localhost:3001/',
+      {id},
+      (err, res) => (this.setState({ item: res.body }))
+    );
+  }
+
+  render() {
+    return (
+      <Item.Group>
+        <BlogItem item={this.state.item}/>
+      </Item.Group>
+    );
+  }
+}
 
 Post.propTypes = {
   match: PropTypes.object

@@ -1,14 +1,30 @@
 import React from 'react';
+
 import BlogList from '../ui/BlogList';
+
 import _ from 'lodash';
-import items from '../data/items';
+
+import request from 'superagent';
+
 import 'css/app.css';
 
 class BlogContainer extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { items, all: true, only: 0 };  
+    this.state = { items: [] };  
     this.like = this.like.bind(this);
+  }
+
+  componentDidMount() {
+    this.fetchPosts();
+  }
+
+  fetchPosts() {
+    request.get(
+      'http://localhost:3001/',
+      {},
+      (err, res) => this.setState({ items: res.body })
+    );
   }
 
   like(id) {

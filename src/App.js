@@ -1,6 +1,6 @@
 import React from 'react';
 
-import BlogContainer from './components/containers/BlogContainer';
+import BlogContainer from 'components/containers/BlogContainer';
 
 import MainLayout from 'components/layouts/MainLayout';
 

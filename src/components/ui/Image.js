@@ -13,7 +13,7 @@ Image.propTypes = {
 };
 
 Image.defaultProps = {
-  src: 'dist/images/world.png',
+  src: '/dist/images/world.png',
   width:  '50px',
   height: '20px',
   alt:    'Default image'
