@@ -23,8 +23,8 @@ class Post  extends React.Component {
 
   fetchPost(id) {
     request.get(
-      'http://localhost:3001/',
-      {id},
+      `http://localhost:3001/posts/${id}`,
+      {},
       (err, res) => (this.setState({ item: res.body }))
     );
   }

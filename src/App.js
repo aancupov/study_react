@@ -10,6 +10,8 @@ import  {
   Link
 } from  'react-router-dom';
 
+import routes from 'routes';
+
 import { postsPath } from 'helpers/routes';
 
 import Post from 'components/Post.js';
@@ -18,10 +20,7 @@ import history from 'helpers/history.js';
 
 const App = () => (
   <Router history={history}>
-    <MainLayout>
-        <Route exact path='/' component={BlogContainer}/>
-        <Route path={postsPath()} component={Post}/>
-    </MainLayout>
+    <MainLayout>{routes.childRoutes}</MainLayout>
   </Router>
 );
 
