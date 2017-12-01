@@ -26,4 +26,4 @@ export function fetchPost(id) {
         err ? dispatch(errorPost()) : dispatch(receivePost(response.body));
       });
   };
-};
+}

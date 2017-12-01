@@ -6,8 +6,6 @@ import { postsPath } from 'helpers/routes';
 import PostsContainer from 'containers/PostsContainer';
 import PostContainer from 'containers/PostContainer';
 
-import store from 'store';
-
 import { fetchPosts } from 'actions/Posts';
 import { fetchPost } from 'actions/Post';
 
@@ -16,6 +14,8 @@ export default [
     prepareData={(store) => { store.dispatch(fetchPosts()); }} 
   />,
   <Route key='1' path={postsPath()} component={PostContainer} 
-    prepareData={ (store, query, params) => { store.dispatch(fetchPost(params.id)); }}
+    prepareData={ (store, query, params) => { 
+      store.dispatch(fetchPost(params.id)); 
+    }}
   />
 ];

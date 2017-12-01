@@ -16,7 +16,7 @@ const errorPosts = () => ({
 });
 
 export function fetchPosts() {
-  return (dispatch, getState) => {
+  return (dispatch) => {
     dispatch(requestPosts());
 
     return request
@@ -24,6 +24,6 @@ export function fetchPosts() {
       .then((response) => {
         dispatch(receivePosts(response.body));
       })
-      .catch((err) => dispatch(errorPosts()));
+      .catch(() => dispatch(errorPosts()));
   };
 }

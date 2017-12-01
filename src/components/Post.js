@@ -8,9 +8,6 @@ import { Item } from 'semantic-ui-react';
 
 import BlogItem from 'components/ui/BlogItem';
 
-import request from 'superagent';
-
-
 const Post = ({ item }) => (
   <Item.Group>
     { item && <BlogItem item={item}/> }
@@ -18,7 +15,7 @@ const Post = ({ item }) => (
 );
 
 Post.propTypes = {
-  match: PropTypes.object
+  item: PropTypes.object
 };
 
 export default Post;
