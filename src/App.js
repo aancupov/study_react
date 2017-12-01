@@ -1,27 +1,61 @@
 import React from 'react';
 
-import BlogContainer from 'components/containers/BlogContainer';
-
 import MainLayout from 'components/layouts/MainLayout';
 
 import  {
   Router,
   Route,
-  Link
+  Link,
+  matchPath
 } from  'react-router-dom';
+
+import { Provider } from 'react-redux';
+
+import { parse } from 'qs';
+
+import store from 'store';
 
 import routes from 'routes';
 
-import { postsPath } from 'helpers/routes';
+import { assign } from 'lodash';
 
-import Post from 'components/Post.js';
+import { postsPath } from 'helpers/routes';
 
 import history from 'helpers/history.js';
 
+import prepareData from 'helpers/prepareData';
+
+function historyCb(location) {
+
+  const state = { routes: [], query: {}, params: {} };
+
+  routes.childRoutes.some(
+    route => {
+      const match = matchPath(location.pathname, route.props);
+
+      if (match) {
+        state.routes.push(route);
+        assign(state.params, match.params);
+        assign(state.query, parse(location.search.substr(1)));
+      }
+    }
+  );
+
+  prepareData(store, state);
+
+  return true;
+}
+
+history.listen(historyCb);
+
+historyCb(window.location);
+
 const App = () => (
-  <Router history={history}>
-    <MainLayout>{routes.childRoutes}</MainLayout>
-  </Router>
+  <Provider store={store}>
+    <Router history={history}>
+      <MainLayout>{routes.childRoutes}</MainLayout>
+    </Router>
+  </Provider>
 );
 
 export default App;

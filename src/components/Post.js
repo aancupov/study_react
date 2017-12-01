@@ -11,32 +11,11 @@ import BlogItem from 'components/ui/BlogItem';
 import request from 'superagent';
 
 
-class Post  extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = { item: {metainfo: {likes:0}} };
-  }
-
-  componentDidMount() {
-    this.fetchPost(this.props.match.params.id);
-  }
-
-  fetchPost(id) {
-    request.get(
-      `http://localhost:3001/posts/${id}`,
-      {},
-      (err, res) => (this.setState({ item: res.body }))
-    );
-  }
-
-  render() {
-    return (
-      <Item.Group>
-        <BlogItem item={this.state.item}/>
-      </Item.Group>
-    );
-  }
-}
+const Post = ({ item }) => (
+  <Item.Group>
+    { item && <BlogItem item={item}/> }
+  </Item.Group>
+);
 
 Post.propTypes = {
   match: PropTypes.object

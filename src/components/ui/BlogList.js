@@ -6,13 +6,13 @@ import PropTypes from 'prop-types';
 
 import BlogItem from './BlogItem';
 
-const BlogList = ({ items, like }) => (
+const BlogList = ({ items }) => (
   <div>
     { 
       _.map(
         items,
         (item, id) => (
-          <BlogItem key={id} item = {item} like = {like} />
+          <BlogItem key={id} item = {item} />
         )
       )
     }
@@ -20,8 +20,7 @@ const BlogList = ({ items, like }) => (
 );
 
 BlogList.propTypes = {
-  items: PropTypes.array,
-  like: PropTypes.func
+  items: PropTypes.array
 };
 
 export default BlogList;
