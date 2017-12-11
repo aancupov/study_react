@@ -2,6 +2,8 @@ import request from 'superagent';
 
 import * as types from 'constants/actionTypes/PostsActionTypes';
 
+import { HOST } from 'constants/host';
+
 const requestPosts = () => ({
   type: types.FETCH_POSTS_REQUEST
 });
@@ -18,9 +20,8 @@ const errorPosts = () => ({
 export function fetchPosts() {
   return (dispatch) => {
     dispatch(requestPosts());
-
     return request
-      .get('http://localhost:3001/')
+      .get(HOST)
       .then((response) => {
         dispatch(receivePosts(response.body));
       })

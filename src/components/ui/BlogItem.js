@@ -15,21 +15,19 @@ import { postsPath } from 'helpers/routes';
 
 const BlogItem = ({ item }) => (
   <div className='blog-item'>
-    <Image { ...item.image } />
+    <Image {...item.image } />
     <Message><Link to={postsPath(item.id)}>{ item.message }</Link></Message>
-    <MetaInfo { ... item.metainfo } />
-    <Likes { ... item.metainfo } />
+    <MetaInfo {... item.metainfo } />
+    <Likes {... item.metainfo } />
   </div>
 );
 
 BlogItem.propTypes = {
-  item: PropTypes.shape({ 
+  item: PropTypes.shape({
+    id: PropTypes.number, 
     message: Message.PropTypes, 
-    metainfo: MetaInfo.PropTypes,
     image: Image.PropTypes
-  }),
-  message: PropTypes.shape({ text: PropTypes.string }),
-  image: PropTypes.shape(Image.PropTypes)
+  })
 };
 
 export default BlogItem;
