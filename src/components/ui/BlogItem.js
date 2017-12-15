@@ -5,7 +5,7 @@ import PropTypes from 'prop-types';
 import Image from './Image';
 import Message from './Message';
 import MetaInfo from './MetaInfo';
-import Likes from './Likes';
+import LikesContainer from 'containers/LikesContainer';
 
 import 'css/app.css';
 
@@ -18,7 +18,7 @@ const BlogItem = ({ item }) => (
     <Image {...item.image } />
     <Message><Link to={postsPath(item.id)}>{ item.message }</Link></Message>
     <MetaInfo {... item.metainfo } />
-    <Likes {... item.metainfo } />
+    <LikesContainer id={item.id}/>
   </div>
 );
 

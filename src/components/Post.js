@@ -10,7 +10,7 @@ import BlogItem from 'components/ui/BlogItem';
 
 const Post = ({ item }) => (
   <Item.Group>
-    { item && <BlogItem item={item}/> }
+    { item && <BlogItem item={ item } /> }
   </Item.Group>
 );
 

@@ -21,9 +21,8 @@ const receivePost = (response) => ({
 export function fetchPost(id) {
   return (dispatch) => {
     dispatch(requestPost(id));
-
     return request
-      .get(HOST + `/posts/${id}`)
+      .get(`${HOST}/posts/${id}`)
       .end((err, response) => {
         err ? dispatch(errorPost()) : dispatch(receivePost(response.body));
       });
