@@ -6,15 +6,13 @@ import PropTypes from 'prop-types';
 
 import BlogItem from './BlogItem';
 
-import { fetchLikes } from 'actions/Likes';
-
 const BlogList = ({ items }) => (
   <div>
     { 
       map(
         items,
         (item, id) => (
-            <BlogItem key={id} item = {item} />
+          <BlogItem key={id} item = {item} />
         )
       )
     }

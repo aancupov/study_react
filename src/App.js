@@ -4,8 +4,6 @@ import MainLayout from 'components/layouts/MainLayout';
 
 import  {
   Router,
-  Route,
-  Link,
   matchPath
 } from  'react-router-dom';
 
@@ -19,14 +17,11 @@ import routes from 'routes';
 
 import { assign } from 'lodash';
 
-import { postsPath } from 'helpers/routes';
-
 import history from 'helpers/history.js';
 
 import prepareData from 'helpers/prepareData';
 
 function historyCb(location) {
-
   const state = { routes: [], query: {}, params: {} };
 
   routes.childRoutes.some(
