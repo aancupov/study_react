@@ -7,7 +7,7 @@ const Likes = ({ likes, click, error }) => (
     { error ? (
       <div> Likes: error </div>
     ) : (
-      <div> Likes: { likes } </div>
+      <div> Likes: {likes} </div>
     )}
     <button onClick={click}>Like</button>
   </div>

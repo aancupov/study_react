@@ -17,7 +17,7 @@ import routes from 'routes';
 
 import { assign } from 'lodash';
 
-import history from 'helpers/history.js';
+import history from 'helpers/history';
 
 import prepareData from 'helpers/prepareData';
 
