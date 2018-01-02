@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 
 import BlogItem from './BlogItem';
 
+import PagesContainer from 'containers/PagesContainer';
+
 const BlogList = ({ items }) => (
   <div>
     { 
@@ -16,6 +18,7 @@ const BlogList = ({ items }) => (
         )
       )
     }
+    <PagesContainer />
   </div>
 );
 
