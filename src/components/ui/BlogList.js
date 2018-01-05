@@ -5,11 +5,13 @@ import { map } from 'lodash';
 import PropTypes from 'prop-types';
 
 import BlogItem from './BlogItem';
+import Find from './Find';
 
 import PagesContainer from 'containers/PagesContainer';
 
-const BlogList = ({ items }) => (
+const BlogList = ({ items, find }) => (
   <div>
+    <Find find={find}/>
     { 
       map(
         items,
@@ -23,7 +25,8 @@ const BlogList = ({ items }) => (
 );
 
 BlogList.propTypes = {
-  items: PropTypes.array
+  items: PropTypes.array,
+  find:  PropTypes.func
 };
 
 export default BlogList;

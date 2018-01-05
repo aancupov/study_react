@@ -2,12 +2,12 @@ import * as types from 'constants/actionTypes/PagesActionTypes';
 
 import { API_CALL } from 'middleware/API';
 
-export function fetchPages() {
+export function fetchPages(find = '') {
   return {
     [API_CALL]: {
       endpoint: '/pages',
       method: 'GET',
-      query: {},
+      query: {find:`${find}`},
       types: [
         types.FETCH_PAGES_REQUEST,
         types.FETCH_PAGES_SUCCESS,
