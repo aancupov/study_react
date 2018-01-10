@@ -15,12 +15,12 @@ export default [
   <Route strict exact key='0' path='/' component={PostsContainer} 
     prepareData={(store, query) => { 
       store.dispatch(fetchPosts(
-        (query.find === undefined) ? '' : query.find, 
+        (query.search === undefined) ? '' : query.search, 
         (query.page === undefined) ? 0 : Number(query.page) 
       )); 
       store.dispatch(fetchAllLikes());
       store.dispatch(
-        fetchPages((query.find === undefined) ? '' : query.find)
+        fetchPages((query.search === undefined) ? '' : query.search)
       ); 
     }} 
   />,
