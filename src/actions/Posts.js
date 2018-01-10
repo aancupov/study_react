@@ -7,7 +7,7 @@ export function fetchPosts(search = '', page = 0) {
     [API_CALL]: {
       endpoint: '/',
       method: 'GET',
-      query: {search:`${search}`, page:`${page}`},
+      query: {search, page},
       types: [
         types.FETCH_POSTS_REQUEST,
         types.FETCH_POSTS_SUCCESS,

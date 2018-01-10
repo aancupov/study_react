@@ -7,7 +7,7 @@ export function fetchPages(search = '') {
     [API_CALL]: {
       endpoint: '/pages',
       method: 'GET',
-      query: {search:`${search}`},
+      query: {search},
       types: [
         types.FETCH_PAGES_REQUEST,
         types.FETCH_PAGES_SUCCESS,
