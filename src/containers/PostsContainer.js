@@ -12,9 +12,9 @@ const stateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  search(text) {
-    dispatch(fetchPosts(text.target.value, 0));
-    dispatch(fetchPages(text.target.value));
+  search(searchText) {
+    dispatch(fetchPosts(searchText, 0));
+    dispatch(fetchPages(searchText));
   }
 });
 
