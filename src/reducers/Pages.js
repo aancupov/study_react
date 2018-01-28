@@ -11,11 +11,12 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case types.FETCH_PAGES_REQUEST:
-      return assign({}, initialState, { isFetching: true });
+      //console.log(action, state);
+      return assign({}, state, { isFetching: true });
     case types.FETCH_PAGES_ERROR:
-      return assign({}, initialState, { error: true });
+      return assign({}, state, { error: true });
     case types.FETCH_PAGES_SUCCESS:
-      return assign({}, initialState, { result: action.response });  
+      return assign({}, state, { result: action.response });  
     default:
       return state;
   }

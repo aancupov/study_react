@@ -4,8 +4,9 @@ import APIMiddleware from 'middleware/API';
 
 import reducers from 'reducers';
 
-const store = createStore(
+const store = (initialState) => createStore(
   reducers, 
+  initialState,
   applyMiddleware(APIMiddleware)
 );
 

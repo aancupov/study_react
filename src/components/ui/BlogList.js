@@ -16,11 +16,11 @@ const BlogList = ({ items, search }) => (
       map(
         items,
         (item, id) => (
-          <BlogItem key={id} item={item} />
+          <BlogItem key={id} item={item}/>
         )
       )
     }
-    <PagesContainer />
+    <PagesContainer />  
   </div>
 );
 

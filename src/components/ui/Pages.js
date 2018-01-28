@@ -12,19 +12,21 @@ const Pages = ({ pages }) => (
   <div>
     Pages:
     <ul className='pages_container'>
-      { 
+      {
         map(
           pages,
           (page) => (
-            <Link to={pagePath(page.query)} key={page.page}>
-              <li key={page.page} className='pages'>{page.page}</li>
-            </Link>
+            <li key={page.page} className='pages'>
+              <Link to={pagePath(page.query)} key={page.page}>
+                {page.page}
+              </Link>
+            </li>
           )
         )
       }
     </ul>
   </div>    
-);
+); 
 
 Pages.propTypes = {
   pages: PropTypes.array

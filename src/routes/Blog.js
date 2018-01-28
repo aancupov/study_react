@@ -13,21 +13,25 @@ import { fetchPages } from 'actions/Pages';
 
 export default [
   <Route strict exact key='0' path='/' component={PostsContainer} 
-    prepareData={(store, query) => { 
-      store.dispatch(fetchPosts(
-        (query.search === undefined) ? '' : query.search, 
-        (query.page === undefined) ? 0 : Number(query.page) 
-      )); 
-      store.dispatch(fetchAllLikes());
-      store.dispatch(
-        fetchPages((query.search === undefined) ? '' : query.search)
-      ); 
-    }} 
+    prepareData={(store, query) => (       
+      Promise.all([
+        store.dispatch(fetchPosts(
+          (query.search === undefined) ? '' : query.search, 
+          (query.page === undefined) ? 0 : Number(query.page) 
+        )), 
+        store.dispatch(fetchAllLikes()), 
+        store.dispatch(
+          fetchPages((query.search === undefined) ? '' : query.search)
+        )
+      ])
+    )} 
   />,
   <Route key='1' path={postsPath()} component={PostContainer} 
-    prepareData={ (store, query, params) => { 
-      store.dispatch(fetchPost(params.id));
-      store.dispatch(fetchAllLikes()); 
-    }}
+    prepareData={(store, query, params) => (
+      Promise.all([
+        store.dispatch(fetchPost(params.id)),
+        store.dispatch(fetchAllLikes())
+      ])
+    )}
   />
 ];
