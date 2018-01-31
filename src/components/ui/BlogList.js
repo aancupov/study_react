@@ -7,9 +7,9 @@ import PropTypes from 'prop-types';
 import BlogItem from './BlogItem';
 import Search from './Search';
 
-import PagesContainer from 'containers/PagesContainer';
+import Pages from './Pages';
 
-const BlogList = ({ items, search }) => (
+const BlogList = ({ items, search, pagination }) => (
   <div>
     <Search search={search}/>
     { 
@@ -20,13 +20,14 @@ const BlogList = ({ items, search }) => (
         )
       )
     }
-    <PagesContainer />  
+    <Pages pagination={pagination}/>  
   </div>
 );
 
 BlogList.propTypes = {
   items:  PropTypes.array,
-  search: PropTypes.func
+  search: PropTypes.func,
+  pagination: PropTypes.number
 };
 
 export default BlogList;

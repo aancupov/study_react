@@ -5,7 +5,8 @@ import * as types from 'constants/actionTypes/PostsActionTypes';
 const initialState = {
   isFetching: false,
   error: false,
-  entries: []
+  entries: [],
+  pagination: 0
 };
 
 export default function(state = initialState, action) {
@@ -15,7 +16,10 @@ export default function(state = initialState, action) {
     case types.FETCH_POSTS_ERROR:
       return assign({}, state, { error: true });
     case types.FETCH_POSTS_SUCCESS:
-      return assign({}, state, { entries: action.response });  
+      return assign({}, state, { 
+        entries: action.response.items, 
+        pagination: action.response.pagination 
+      });  
     default:
       return state;
   }

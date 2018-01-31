@@ -9,7 +9,6 @@ import PostContainer from 'containers/PostContainer';
 import { fetchPosts } from 'actions/Posts';
 import { fetchPost } from 'actions/Post';
 import { fetchAllLikes } from 'actions/Likes';
-import { fetchPages } from 'actions/Pages';
 
 export default [
   <Route strict exact key='0' path='/' component={PostsContainer} 
@@ -19,10 +18,7 @@ export default [
           (query.search === undefined) ? '' : query.search, 
           (query.page === undefined) ? 0 : Number(query.page) 
         )), 
-        store.dispatch(fetchAllLikes()), 
-        store.dispatch(
-          fetchPages((query.search === undefined) ? '' : query.search)
-        )
+        store.dispatch(fetchAllLikes())
       ])
     )} 
   />,

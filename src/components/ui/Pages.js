@@ -8,28 +8,38 @@ import { pagePath } from 'helpers/routes';
 
 import { Link } from 'react-router-dom';
 
-const Pages = ({ pages }) => (
-  <div>
-    Pages:
-    <ul className='pages_container'>
-      {
-        map(
-          pages,
-          (page) => (
-            <li key={page.page} className='pages'>
-              <Link to={pagePath(page.page)} key={page.page}>
-                {page.page}
-              </Link>
-            </li>
+import { perpage } from 'constants/perpage';
+
+const Pages = ({ pagination }) => {
+  const pages = [];
+  let npage = 0;
+  for (let i = 0; i < pagination; i += perpage) {
+    pages.push({page: npage});
+    npage++;
+  }
+  return (
+    <div>
+      Pages:
+      <ul className='pages_container'>
+        {
+          map(
+            pages,
+            (page) => (
+              <li key={page.page} className='pages'>
+                <Link to={pagePath(page.page)} key={page.page}>
+                  {page.page}
+                </Link>
+              </li>
+            )
           )
-        )
-      }
-    </ul>
-  </div>    
-); 
+        }
+      </ul>
+    </div>    
+  );   
+};
 
 Pages.propTypes = {
-  pages: PropTypes.array
+  pagination: PropTypes.number
 };
 
 export default Pages;
