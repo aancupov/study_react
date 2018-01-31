@@ -17,7 +17,7 @@ const Pages = ({ pages }) => (
           pages,
           (page) => (
             <li key={page.page} className='pages'>
-              <Link to={pagePath(page.query)} key={page.page}>
+              <Link to={pagePath(page.page)} key={page.page}>
                 {page.page}
               </Link>
             </li>
