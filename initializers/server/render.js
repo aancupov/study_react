@@ -2,56 +2,52 @@ import React from 'react';
 import ReactDOMServer from 'react-dom/server';
 import {Provider} from 'react-redux';
 import { matchPath, StaticRouter } from 'react-router-dom';
-import assign from 'lodash';
+import {assign} from 'lodash';
+
+import Helmet from 'react-helmet';
 
 import prepareData from 'helpers/prepareData';
 
 import MainLayout from 'components/layouts/MainLayout';
-//import history from 'helpers/history';
 
 import createStore from 'store';
 import routes from 'routes';
 
 export default (req, res) => { 
-  const state = {
-    params: {},
-    routes: [],
-    query: {}
-  };
-
-  // бежим по всем роутам и матчим каждый в поисках подходящих
-  routes.childRoutes.some(route => {
-    const match = matchPath(req.path, route);
-    if (match)
-    {
+  const state = { routes: [], query: {}, params: {} };
+  //пробежим по всем роутам
+  routes.childRoutes.forEach(route => {
+    const match = matchPath(req.path, route.props);
+    if (match !== null) {
       // Если нашли, то добавляем в состояние роутинга запись о таком роуте
       state.routes.push(route);
       assign(state.params, match.params);
       assign(state.query, req.query);
     }
-    return match;
+    return;
   });
-
+  
   const store = createStore();
 
   prepareData(store, state).then(
     () => {
       // и после этого рендерим страницу с начальным состоянием
       const initialState = JSON.stringify(store.getState());
-      
       let context = {};
       const content = ReactDOMServer.renderToString(
         <Provider store={store}>
           <StaticRouter location={req.url} context={context}>
-            <MainLayout>{routes.childRoutes}</MainLayout>
+            <MainLayout>{state.routes}</MainLayout>
           </StaticRouter>
         </Provider>
       );
-      //console.log(content);
+
+      const head = Helmet.rewind();
+
       res.status(200);
       res.render(
         'index',
-        { initialState, content }
+        { initialState, content, head }
       );
     }
   );  

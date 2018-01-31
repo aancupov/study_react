@@ -15,7 +15,7 @@ export default function(state = initialState, action) {
     case types.FETCH_POST_ERROR:
       return assign({}, state, { error: true });
     case types.FETCH_POST_SUCCESS:
-      return assign({}, state, { entry: action.response });  
+      return assign({}, state, { entry: action.response });
     default:
       return state;
   }

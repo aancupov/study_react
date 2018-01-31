@@ -1,6 +1,6 @@
 import { connect } from 'react-redux';
 
-import BlogList from 'components/ui/BlogList';
+import Index from 'components/views/Index';
 
 import { fetchPosts } from 'actions/Posts';
 import { fetchPages } from 'actions/Pages';
@@ -18,4 +18,4 @@ const mapDispatchToProps = (dispatch) => ({
   }
 });
 
-export default connect(stateToProps, mapDispatchToProps)(BlogList);
+export default connect(stateToProps, mapDispatchToProps)(Index);
