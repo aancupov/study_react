@@ -6,9 +6,9 @@ import PropTypes from 'prop-types';
 
 import BlogList from 'components/ui/BlogList';
 
-const Index = ({ items, pagination }) => (
+const Index = ({ items, pagination, search }) => (
   <div>
-    <BlogList items={items} pagination={pagination}/>
+    <BlogList items={items} pagination={pagination} search={search} />
     <Helmet 
       title='Список постов'
     />
@@ -17,7 +17,8 @@ const Index = ({ items, pagination }) => (
 
 Index.propTypes = {
   items: BlogList.propTypes.items,
-  pagination: PropTypes.number
+  pagination: PropTypes.number,
+  search: PropTypes.func
 };
 
 export default Index;
