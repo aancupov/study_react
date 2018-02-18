@@ -1,10 +1,13 @@
 import React from 'react';
 import  { Route } from  'react-router-dom';
 
-import { postsPath } from 'helpers/routes';
+import { postsPath, postsPathEdit } from 'helpers/routes';
 
 import PostsContainer from 'containers/PostsContainer';
 import PostContainer from 'containers/PostContainer';
+import Contacts from 'components/views/Contacts';
+import Ccontacts from 'components/views/Ccontacts';
+import EditPostView from 'components/views/Edit';
 
 import { fetchPosts } from 'actions/Posts';
 import { fetchPost } from 'actions/Post';
@@ -22,12 +25,21 @@ export default [
       ])
     )} 
   />,
-  <Route key='1' path={postsPath()} component={PostContainer} 
+  <Route strict exact key='1' path={postsPath()} component={PostContainer} 
     prepareData={(store, query, params) => (
       Promise.all([
         store.dispatch(fetchPost(params.id)),
         store.dispatch(fetchAllLikes())
       ])
     )}
-  />
+  />,
+  <Route key='2' path='/contacts' component={Contacts} 
+  />,
+  <Route key='3' path='/ccontacts' component={Ccontacts} 
+  />,
+  <Route key='4' path={postsPathEdit()} component={EditPostView}
+    prepareData={(store, query, params) => (
+      store.dispatch(fetchPost(params.id))
+    )}
+  />  
 ];
