@@ -31,3 +31,18 @@ export function updatePost(values) {
     }
   };
 }
+
+export function addPost(values) {
+  return {
+    [API_CALL]: {
+      endpoint: '/posts/add',
+      method: 'POST',
+      query: values,
+      types: [
+        types.ADD_POST_REQUEST,
+        types.ADD_POST_SUCCESS,
+        types.ADD_POST_ERROR
+      ]
+    }
+  };
+}

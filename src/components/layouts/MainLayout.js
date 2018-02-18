@@ -7,8 +7,8 @@ import { Link } from 'react-router-dom';
 import { Button, Segment, Header, Container, Menu } from 'semantic-ui-react';
 
 import history from 'helpers/history.js';
-import { contactsPath } from 'helpers/routes';
-import { ccontactsPath } from 'helpers/routes';
+
+import { contactsPath, ccontactsPath, postsPathAdd } from 'helpers/routes';
 
 const MainLayout = ({ children }) => (
   <Container>
@@ -37,6 +37,11 @@ const Logo = () => (
         <Link to='/'>
           <Menu.Item>
             Home
+          </Menu.Item>
+        </Link>
+        <Link to={postsPathAdd()}>
+          <Menu.Item>
+            Add Post
           </Menu.Item>
         </Link>
         <Link to={contactsPath()}>
