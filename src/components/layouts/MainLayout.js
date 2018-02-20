@@ -4,9 +4,11 @@ import PropTypes from 'prop-types';
 
 import { Link } from 'react-router-dom';
 
-import { Button, Segment, Header, Container } from 'semantic-ui-react';
+import { Button, Segment, Header, Container, Menu } from 'semantic-ui-react';
 
 import history from 'helpers/history.js';
+
+import { contactsPath, ccontactsPath, postsPathAdd } from 'helpers/routes';
 
 const MainLayout = ({ children }) => (
   <Container>
@@ -31,6 +33,28 @@ const Logo = () => (
   <Segment>
     <Header>
       <Link to='/'>Blog</Link>
+      <Menu floated='right' compact={true}>
+        <Link to='/'>
+          <Menu.Item>
+            Home
+          </Menu.Item>
+        </Link>
+        <Link to={postsPathAdd()}>
+          <Menu.Item>
+            Add Post
+          </Menu.Item>
+        </Link>
+        <Link to={contactsPath()}>
+          <Menu.Item>
+            Contacts
+          </Menu.Item>
+        </Link>
+        <Link to={ccontactsPath()}>
+          <Menu.Item>
+            Ccontacts
+          </Menu.Item>
+        </Link>
+      </Menu>
     </Header>
   </Segment>
 );

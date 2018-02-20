@@ -10,18 +10,21 @@ import App from './App';
 
 const rootEl = document.getElementById('app');
 
-ReactDOM.render(
+ReactDOM.hydrate(
   <AppContainer>
     <App />
   </AppContainer>,
-  rootEl
+  rootEl,
+  () => {
+    delete window.__INITIAL_STATE__;
+  }
 );
 
 if (module.hot) {
   module.hot.accept('./App', () => {
     const NextApp = require('./App').default;
 
-    ReactDOM.render(
+    ReactDOM.hydrate(
       <AppContainer>
         <NextApp />
       </AppContainer>,

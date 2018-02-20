@@ -1,30 +1,48 @@
-import request from 'superagent';
-
 import * as types from 'constants/actionTypes/PostActionTypes';
 
-import { HOST } from 'constants/host';
-
-const requestPost = (id) => ({
-  type: types.FETCH_POST_REQUEST,
-  id
-});
-
-const errorPost = () => ({
-  type: types.FETCH_POST_ERROR
-});
-
-const receivePost = (response) => ({
-  type: types.FETCH_POST_SUCCESS,
-  response
-});
+import { API_CALL } from 'middleware/API';
 
 export function fetchPost(id) {
-  return (dispatch) => {
-    dispatch(requestPost(id));
-    return request
-      .get(`${HOST}/posts/${id}`)
-      .end((err, response) => {
-        err ? dispatch(errorPost()) : dispatch(receivePost(response.body));
-      });
+  return {
+    [API_CALL]: {
+      endpoint: `/posts/${id}`,
+      method: 'GET',
+      query: {},
+      types: [
+        types.FETCH_POST_REQUEST,
+        types.FETCH_POST_SUCCESS,
+        types.FETCH_POST_ERROR
+      ]
+    }
+  };
+}
+
+export function updatePost(values) {
+  return {
+    [API_CALL]: {
+      endpoint: `/posts/${values.id}/edit`,
+      method: 'PUT',
+      query: values,
+      types: [
+        types.UPDATE_POST_REQUEST,
+        types.UPDATE_POST_SUCCESS,
+        types.UPDATE_POST_ERROR
+      ]
+    }
+  };
+}
+
+export function addPost(values) {
+  return {
+    [API_CALL]: {
+      endpoint: '/posts/add',
+      method: 'POST',
+      query: values,
+      types: [
+        types.ADD_POST_REQUEST,
+        types.ADD_POST_SUCCESS,
+        types.ADD_POST_ERROR
+      ]
+    }
   };
 }
