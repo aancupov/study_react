@@ -13,6 +13,7 @@ import AddContainer from 'containers/AddContainer';
 import { fetchPosts } from 'actions/Posts';
 import { fetchPost } from 'actions/Post';
 import { fetchAllLikes } from 'actions/Likes';
+import { fetchComments } from 'actions/Comments';
 
 export default [
   <Route strict exact key='0' path='/' component={PostsContainer} 
@@ -30,6 +31,7 @@ export default [
     prepareData={(store, query, params) => (
       Promise.all([
         store.dispatch(fetchPost(params.id)),
+        store.dispatch(fetchComments(params.id)),
         store.dispatch(fetchAllLikes())
       ])
     )}

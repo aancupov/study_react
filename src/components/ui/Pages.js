@@ -35,7 +35,7 @@ const Pages = ({ pagination }) => {
         }
       </ul>
     </div>    
-  );   
+  );
 };
 
 Pages.propTypes = {

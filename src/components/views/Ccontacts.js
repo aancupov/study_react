@@ -4,6 +4,8 @@ import { set, assign } from 'lodash/object';
 
 import classNames from 'classnames';
 
+import PropTypes from 'prop-types';
+
 class Ccontacts extends React.Component {
   constructor(props) {
     super(props);
@@ -102,6 +104,14 @@ const Text = ({ name, value, onChange, label, error }) => (
   </div>
 );
 
+Text.propTypes = {
+  name:     PropTypes.string,
+  value:    PropTypes.string,
+  onChange: PropTypes.func,
+  label:    PropTypes.string,
+  error:    PropTypes.bool
+};
+
 const TextArea = ({ name, value, onChange, label }) => (
   <div className="ui field">
     <label htmlFor={name}>{label}</label>
@@ -114,3 +124,10 @@ const TextArea = ({ name, value, onChange, label }) => (
     />
   </div>
 );
+
+TextArea.propTypes = {
+  name:     PropTypes.string,
+  value:    PropTypes.string,
+  onChange: PropTypes.func,
+  label:    PropTypes.string
+};

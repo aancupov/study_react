@@ -5,6 +5,8 @@ import { assign } from 'lodash';
 
 import classNames from 'classnames';
 
+import PropTypes from 'prop-types';
+
 class Contacts extends React.Component {
   constructor(props) {
     super(props);
@@ -21,7 +23,7 @@ class Contacts extends React.Component {
     this.setState({ errors: {} });
     const values = mapValues(this.form, 'value');
 
-    if ( !values.email || values.email.length < 3)
+    if (!values.email || values.email.length < 3)
       this.setState(assign(
         {},
         this.state,
@@ -92,6 +94,13 @@ class Text extends React.Component {
   }
 }
 
+Text.propTypes = {
+  name:     PropTypes.string,
+  fieldRef: PropTypes.string,
+  label:    PropTypes.string,
+  error:    PropTypes.bool
+};
+
 class TextArea extends React.Component {
   render() {
     const { label, name, fieldRef } = this.props;
@@ -109,3 +118,9 @@ class TextArea extends React.Component {
     );
   }
 }
+
+TextArea.propTypes = {
+  name:     PropTypes.string,
+  fieldRef: PropTypes.string,
+  label:    PropTypes.string
+};
