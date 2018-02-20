@@ -11,7 +11,7 @@ import { Provider } from 'react-redux';
 
 import { parse } from 'qs';
 
-import store from 'store';
+import createStore from 'store';
 
 import routes from 'routes';
 
@@ -20,6 +20,8 @@ import { assign } from 'lodash';
 import history from 'helpers/history';
 
 import prepareData from 'helpers/prepareData';
+
+const store = createStore(window.__INITIAL_STATE__);
 
 function historyCb(location) {
   const state = { routes: [], query: {}, params: {} };

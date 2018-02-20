@@ -12,15 +12,22 @@ import { fetchAllLikes } from 'actions/Likes';
 
 export default [
   <Route strict exact key='0' path='/' component={PostsContainer} 
-    prepareData={(store) => { 
-      store.dispatch(fetchPosts()); 
-      store.dispatch(fetchAllLikes()); 
-    }} 
+    prepareData={(store, query) => (       
+      Promise.all([
+        store.dispatch(fetchPosts(
+          (query.search === undefined) ? '' : query.search, 
+          (query.page === undefined) ? 0 : Number(query.page) 
+        )), 
+        store.dispatch(fetchAllLikes())
+      ])
+    )} 
   />,
   <Route key='1' path={postsPath()} component={PostContainer} 
-    prepareData={ (store, query, params) => { 
-      store.dispatch(fetchPost(params.id));
-      store.dispatch(fetchAllLikes()); 
-    }}
+    prepareData={(store, query, params) => (
+      Promise.all([
+        store.dispatch(fetchPost(params.id)),
+        store.dispatch(fetchAllLikes())
+      ])
+    )}
   />
 ];
