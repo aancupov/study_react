@@ -20,9 +20,10 @@ export function fetchPost(id) {
 export function updatePost(values) {
   return {
     [API_CALL]: {
-      endpoint: `/posts/${values.id}/edit`,
+      endpoint: `/posts/${values.id}`,
       method: 'PUT',
-      query: values,
+      query: '',
+      payload: values,
       types: [
         types.UPDATE_POST_REQUEST,
         types.UPDATE_POST_SUCCESS,
@@ -35,9 +36,10 @@ export function updatePost(values) {
 export function addPost(values) {
   return {
     [API_CALL]: {
-      endpoint: '/posts/add',
+      endpoint: '/posts',
       method: 'POST',
-      query: values,
+      query: '',
+      payload: values,
       types: [
         types.ADD_POST_REQUEST,
         types.ADD_POST_SUCCESS,

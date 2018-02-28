@@ -1,12 +1,13 @@
 import React from 'react';
 import  { Route } from  'react-router-dom';
 
-import { postsPath, postsPathEdit, postsPathAdd } from 'helpers/routes';
+import { postPath, editPostPath, addPostPath, contactsRefPath, contactsPath } 
+  from 'helpers/routes';
 
 import PostsContainer from 'containers/PostsContainer';
 import PostContainer from 'containers/PostContainer';
+import ContactsRef from 'components/views/ContactsRef';
 import Contacts from 'components/views/Contacts';
-import Ccontacts from 'components/views/Ccontacts';
 import EditContainer from 'containers/EditContainer';
 import AddContainer from 'containers/AddContainer';
 
@@ -27,7 +28,7 @@ export default [
       ])
     )} 
   />,
-  <Route strict exact key='1' path={postsPath()} component={PostContainer} 
+  <Route strict exact key='1' path={postPath()} component={PostContainer} 
     prepareData={(store, query, params) => (
       Promise.all([
         store.dispatch(fetchPost(params.id)),
@@ -36,14 +37,14 @@ export default [
       ])
     )}
   />,
-  <Route key='2' path='/contacts' component={Contacts} 
+  <Route key='2' path={contactsRefPath()} component={ContactsRef} 
   />,
-  <Route key='3' path='/ccontacts' component={Ccontacts} 
+  <Route key='3' path={contactsPath()} component={Contacts} 
   />,
-  <Route key='4' path={postsPathEdit()} component={EditContainer}
+  <Route key='4' path={editPostPath()} component={EditContainer}
     prepareData={(store, query, params) => (
       store.dispatch(fetchPost(params.id))
     )}
   />,
-  <Route key='5' path={postsPathAdd()} component={AddContainer} />  
+  <Route key='5' path={addPostPath()} component={AddContainer} />  
 ];

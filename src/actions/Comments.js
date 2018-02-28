@@ -5,7 +5,7 @@ import { API_CALL } from 'middleware/API';
 export function fetchComments(id) {
   return {
     [API_CALL]: {
-      endpoint: `/comments/${id}`,
+      endpoint: `/posts/${id}/comments`,
       method: 'GET',
       query: {},
       types: [
@@ -20,9 +20,10 @@ export function fetchComments(id) {
 export function addComment(id, values) {
   return {
     [API_CALL]: {
-      endpoint: `/comments/${id}/add`,
+      endpoint: `/posts/${id}/comments`,
       method: 'POST',
-      query: values,
+      query: '',
+      payload: values,
       types: [
         types.ADD_COMMENT_REQUEST,
         types.ADD_COMMENT_SUCCESS,

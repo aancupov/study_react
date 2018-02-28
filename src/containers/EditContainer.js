@@ -2,7 +2,7 @@ import { connect } from 'react-redux';
 
 import { updatePost } from 'actions/Post';
 
-import { reduxForm } from 'redux-form';
+import { reduxForm, SubmissionError } from 'redux-form';
 
 import EditPostView from 'components/views/Edit';
 
@@ -38,6 +38,12 @@ export default connect (
   validate,
   warn,
   onSubmit: (values, dispatch) => (
-    dispatch(updatePost(values)).then(history.back())
+    dispatch(updatePost(values))
+      .then((response) => {
+        if (response.error.flag) 
+          throw new SubmissionError(response.error);
+        else 
+          history.back();
+      })
   )
 })(EditPostView));

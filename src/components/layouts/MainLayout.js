@@ -8,7 +8,7 @@ import { Button, Segment, Header, Container, Menu } from 'semantic-ui-react';
 
 import history from 'helpers/history.js';
 
-import { contactsPath, ccontactsPath, postsPathAdd } from 'helpers/routes';
+import { contactsRefPath, contactsPath, addPostPath } from 'helpers/routes';
 
 const MainLayout = ({ children }) => (
   <Container>
@@ -39,19 +39,19 @@ const Logo = () => (
             Home
           </Menu.Item>
         </Link>
-        <Link to={postsPathAdd()}>
+        <Link to={addPostPath()}>
           <Menu.Item>
             Add Post
+          </Menu.Item>
+        </Link>
+        <Link to={contactsRefPath()}>
+          <Menu.Item>
+            ContactsRef
           </Menu.Item>
         </Link>
         <Link to={contactsPath()}>
           <Menu.Item>
             Contacts
-          </Menu.Item>
-        </Link>
-        <Link to={ccontactsPath()}>
-          <Menu.Item>
-            Ccontacts
           </Menu.Item>
         </Link>
       </Menu>

@@ -1,26 +1,29 @@
 import { connect } from 'react-redux';
 
-import { reset, reduxForm } from 'redux-form';
+import { reset, reduxForm, SubmissionError } from 'redux-form';
 
 import Comments from 'components/ui/Comments';
 
-import { addComment, fetchComments } from 'actions/Comments';
+import { addComment } from 'actions/Comments';
 
 const stateToProps = (state) => ({
   comments: state.comments.result,
   isFetching: state.comments.isFetching,
-  error: state.comments.error
+  error: state.comments.error,
+  errors: state.errors
 });
 
 export default connect(stateToProps) (
   reduxForm({ 
     form: 'addComment',
-    //validate,
-    //warn,
     onSubmit: (values, dispatch, props) => (
       dispatch(addComment(props.id,values))
-        .then(dispatch(fetchComments(props.id)))
         .then(dispatch(reset('addComment')))
+        .then((response) => {
+          response.errors.forEach((item) => {
+            throw new SubmissionError(item);
+          });
+        })
     )
   }
   )(Comments)

@@ -23,13 +23,13 @@ export default function(state = initialState, action) {
     case types.UPDATE_POST_ERROR:
       return assign({}, state, { error: true });
     case types.UPDATE_POST_SUCCESS:
-      return state; 
+      return assign({}, state, { entry: action.response });
     case types.ADD_POST_REQUEST:
       return assign({}, state, { isAdding: true });
     case types.ADD_POST_ERROR:
       return assign({}, state, { error: true });
     case types.ADD_POST_SUCCESS:
-      return state; 
+      return assign({}, state, { entry: action.response });
     default:
       return state;
   }

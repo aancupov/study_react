@@ -11,12 +11,12 @@ import 'css/app.css';
 
 import { Link } from 'react-router-dom';
 
-import { postsPath } from 'helpers/routes';
+import { postPath } from 'helpers/routes';
 
 const BlogItem = ({ item }) => (
   <div className='blog-item'>
     <Image {...item.image } />
-    <Message><Link to={postsPath(item.id)}>{ item.message }</Link></Message>
+    <Message><Link to={postPath(item.id)}>{ item.message }</Link></Message>
     <MetaInfo {... item.metainfo } />
     <LikesContainer id={item.id}/>
   </div>

@@ -22,11 +22,7 @@ renderField.propTypes = {
   input:  PropTypes.object,
   label:  PropTypes.string,
   type:   PropTypes.string,
-  meta: PropTypes.object//{
-  //   touched: PropTypes.bool,
-  //   error:   PropTypes.bool,
-  //   warning: PropTypes.bool
-  // }
+  meta: PropTypes.object
 };
 
 export default renderField;
