@@ -1,14 +1,20 @@
 import React from 'react';
 import  { Route } from  'react-router-dom';
 
-import { postsPath } from 'helpers/routes';
+import { postPath, editPostPath, addPostPath, contactsRefPath, contactsPath } 
+  from 'helpers/routes';
 
 import PostsContainer from 'containers/PostsContainer';
 import PostContainer from 'containers/PostContainer';
+import ContactsRef from 'components/views/ContactsRef';
+import Contacts from 'components/views/Contacts';
+import EditContainer from 'containers/EditContainer';
+import AddContainer from 'containers/AddContainer';
 
 import { fetchPosts } from 'actions/Posts';
 import { fetchPost } from 'actions/Post';
 import { fetchAllLikes } from 'actions/Likes';
+import { fetchComments } from 'actions/Comments';
 
 export default [
   <Route strict exact key='0' path='/' component={PostsContainer} 
@@ -22,12 +28,23 @@ export default [
       ])
     )} 
   />,
-  <Route key='1' path={postsPath()} component={PostContainer} 
+  <Route strict exact key='1' path={postPath()} component={PostContainer} 
     prepareData={(store, query, params) => (
       Promise.all([
         store.dispatch(fetchPost(params.id)),
+        store.dispatch(fetchComments(params.id)),
         store.dispatch(fetchAllLikes())
       ])
     )}
-  />
+  />,
+  <Route key='2' path={contactsRefPath()} component={ContactsRef} 
+  />,
+  <Route key='3' path={contactsPath()} component={Contacts} 
+  />,
+  <Route key='4' path={editPostPath()} component={EditContainer}
+    prepareData={(store, query, params) => (
+      store.dispatch(fetchPost(params.id))
+    )}
+  />,
+  <Route key='5' path={addPostPath()} component={AddContainer} />  
 ];

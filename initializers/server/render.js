@@ -33,7 +33,7 @@ export default (req, res) => {
     () => {
       // и после этого рендерим страницу с начальным состоянием
       const initialState = JSON.stringify(store.getState());
-      let context = {};
+      const context = {};
       const content = ReactDOMServer.renderToString(
         <Provider store={store}>
           <StaticRouter location={req.url} context={context}>
