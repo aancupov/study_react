@@ -4,6 +4,7 @@ import MainLayout from 'components/layouts/MainLayout';
 
 import  {
   Router,
+  Switch,
   matchPath
 } from  'react-router-dom';
 
@@ -50,7 +51,9 @@ historyCb(window.location);
 const App = () => (
   <Provider store={store}>
     <Router history={history}>
-      <MainLayout>{routes.childRoutes}</MainLayout>
+      <Switch>
+        <MainLayout>{routes.childRoutes}</MainLayout>
+      </Switch>  
     </Router>
   </Provider>
 );

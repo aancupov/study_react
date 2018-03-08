@@ -28,7 +28,8 @@ export default [
       ])
     )} 
   />,
-  <Route strict exact key='1' path={postPath()} component={PostContainer} 
+  <Route key='1' path={addPostPath()} component={AddContainer} />,
+  <Route strict exact key='2' path={postPath()} component={PostContainer} 
     prepareData={(store, query, params) => (
       Promise.all([
         store.dispatch(fetchPost(params.id)),
@@ -37,14 +38,13 @@ export default [
       ])
     )}
   />,
-  <Route key='2' path={contactsRefPath()} component={ContactsRef} 
+  <Route key='3' path={contactsRefPath()} component={ContactsRef} 
   />,
-  <Route key='3' path={contactsPath()} component={Contacts} 
+  <Route key='4' path={contactsPath()} component={Contacts} 
   />,
-  <Route key='4' path={editPostPath()} component={EditContainer}
+  <Route key='5' path={editPostPath()} component={EditContainer}
     prepareData={(store, query, params) => (
       store.dispatch(fetchPost(params.id))
     )}
-  />,
-  <Route key='5' path={addPostPath()} component={AddContainer} />  
+  />
 ];
