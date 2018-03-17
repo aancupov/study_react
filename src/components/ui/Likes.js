@@ -7,9 +7,9 @@ const Likes = ({ likes, click, error }) => (
     { error ? (
       <div> Likes: error </div>
     ) : (
-      <div> Likes: {likes} </div>
+      <div className='str-likes'> Likes: {likes} </div>
     )}
-    <button onClick={click}>Like</button>
+    <button onClick={click} className='btn-like'>Like</button>
   </div>
 ); 
 

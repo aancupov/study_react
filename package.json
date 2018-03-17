@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest --config jest.config.json"
   },
   "author": "",
   "license": "ISC",
@@ -32,16 +32,22 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.1",
     "babel-loader": "^7.1.2",
     "babel-preset-latest": "^6.24.1",
     "babel-preset-react": "^6.24.1",
     "babel-register": "^6.26.0",
     "css-loader": "^0.28.7",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "eslint": "^4.10.0",
     "eslint-plugin-destructuring": "^2.1.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-react": "^7.4.0",
+    "jest": "^22.4.2",
+    "nightmare": "^3.0.0",
     "react-hot-loader": "^3.0.0",
+    "react-test-renderer": "^16.2.0",
     "semantic-ui": "^2.2.13",
     "style-loader": "^0.19.0",
     "url-loader": "^0.6.2",

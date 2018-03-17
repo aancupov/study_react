@@ -7,7 +7,7 @@ import Message from './Message';
 import MetaInfo from './MetaInfo';
 import LikesContainer from 'containers/LikesContainer';
 
-import 'css/app.css';
+//import 'css/app.css';
 
 import { Link } from 'react-router-dom';
 
@@ -28,6 +28,10 @@ BlogItem.propTypes = {
     message: Message.PropTypes, 
     image: Image.PropTypes
   })
+};
+
+BlogItem.defaultProps = {
+  item: {}
 };
 
 export default BlogItem;
