@@ -4,11 +4,11 @@ import classNames from 'classnames';
 
 import PropTypes from 'prop-types';
 
-const renderField = ({ input, label, type, 
+const renderField = ({ input, label, type,
   meta: { touched, error, warning } }) => (
   <div className={ classNames('ui field', { error }) } >
     <label>{label}</label>
-    <input className="ui input" {...input} type={type} />
+    <input className={'ui input '} {...input} type={type} />
     { touched && (error && (
       <div className="ui red label">{error}</div>
     )) || (warning && (
